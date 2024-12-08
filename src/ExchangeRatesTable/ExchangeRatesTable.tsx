@@ -21,7 +21,7 @@ export const ExchangeRatesTable = () => {
   return (
     <div className="container">
       <h2>Курсы валют на {currentDate}</h2>
-      <table className="structure">
+      <table className="table">
         <thead>
           <tr>
             <th className="header">Код</th>
