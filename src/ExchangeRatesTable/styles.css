@@ -1,18 +1,6 @@
 .container {
   width: 1100px;
   margin: 0 auto;
-
-  @media (max-width: 1110px) {
-    width: 900px;
-  }
-
-  @media (max-width: 910px) {
-    width: 700px;
-  }
-
-  @media (max-width: 710px) {
-    width: 500px;
-  }
 }
 
 .header {
