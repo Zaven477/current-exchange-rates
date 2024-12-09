@@ -1,7 +1,4 @@
-const fetchJSON = async (url: string) => {
-  const response = await fetch(url);
-  return await response.json();
-};
+import { fetchJSON } from "../../fetch/fetchjson";
 
 export const getExchangeRates = async () => {
   return await fetchJSON("https://www.cbr-xml-daily.ru/daily_json.js");
