@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { TCurrency, TCurrentDateExchange } from "./types";
+import { ExchangeRatesState } from "./types";
 
-const initialState: TCurrency &
-  TCurrentDateExchange & { loading: boolean; error: null | string } = {
-  exchangeCurrency: {},
+const initialState: ExchangeRatesState & {
+  loading: boolean;
+  error: null | string;
+} = {
+  exchangeCurrency: [],
   currentDate: "",
   loading: false,
   error: null,
@@ -13,7 +15,7 @@ const exchangeRatesSlice = createSlice({
   name: "rates",
   initialState,
   reducers: {
-    setExchangeCurrency: (state, { payload }) => {
+    setExchangeCurrency: (state, {payload}) => {
       state.exchangeCurrency = payload;
     },
     setCurrentDate: (state, { payload }) => {

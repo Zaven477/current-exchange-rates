@@ -1,4 +1,4 @@
-export type TExchangeCurrency = {
+export type TCurrencyInfo = {
   ID: string;
   NumCode: string;
   CharCode: string;
@@ -8,10 +8,7 @@ export type TExchangeCurrency = {
   Previous: number;
 };
 
-export type TCurrency = {
-  exchangeCurrency: Record<string, TExchangeCurrency>;
-};
-
-export type TCurrentDateExchange = {
+export type ExchangeRatesState = {
+  exchangeCurrency: TCurrencyInfo[];
   currentDate: string;
 };
