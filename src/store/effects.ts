@@ -1,4 +1,5 @@
 import { getExchangeRates } from "../api/dataExchangeRates";
+import { normalizedData } from "../utils/normalizedData";
 import { AppDispatch } from "./configureStore";
 import {
   setCurrentDate,
@@ -13,7 +14,9 @@ export const fetchDataExchangeRates = () => {
       dispatch(setLoading(true));
 
       const { Valute, Date } = await getExchangeRates();
-      dispatch(setExchangeCurrency(Valute));
+      const normalizedValute = normalizedData(Valute);
+
+      dispatch(setExchangeCurrency(normalizedValute));
       dispatch(setCurrentDate(Date));
 
       dispatch(setLoading(false));
