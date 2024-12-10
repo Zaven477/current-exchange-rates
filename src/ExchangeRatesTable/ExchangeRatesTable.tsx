@@ -3,7 +3,7 @@ import "./styles.css";
 import { ClipLoader } from "react-spinners";
 
 export const ExchangeRatesTable = () => {
-  const { currentDate, currenciesByName, loading, error } =
+  const { currentDate, currencies, loading, error } =
     useExchangeCurrency();
 
   if (loading) {
@@ -33,7 +33,7 @@ export const ExchangeRatesTable = () => {
           </tr>
         </thead>
         <tbody>
-          {currenciesByName.map((currency) => (
+          {currencies.map((currency) => (
             <tr key={currency.ID}>
               <td className="cell">{currency.CharCode}</td>
               <td className="cell">{currency.Name}</td>

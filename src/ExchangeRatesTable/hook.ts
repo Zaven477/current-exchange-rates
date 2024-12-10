@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { fetchDataExchangeRates } from "../store/effects";
-import { convertDate } from "../utils";
+import { convertDate } from "../utils/convertDate";
 import { useAppDispatch, useAppSelector } from "../hook";
 
 export const useExchangeCurrency = () => {
@@ -8,7 +8,6 @@ export const useExchangeCurrency = () => {
   const error = useAppSelector((state) => state.valute.error);
   const date = useAppSelector((state) => state.valute.currentDate);
   const currencies = useAppSelector((state) => state.valute.exchangeCurrency);
-  const currenciesByName = Object.values(currencies);
   const currentDate = convertDate(date);
 
   const dispatch = useAppDispatch();
@@ -17,5 +16,5 @@ export const useExchangeCurrency = () => {
     dispatch(fetchDataExchangeRates());
   }, [dispatch]);
 
-  return { loading, error, currentDate, currenciesByName };
+  return { loading, error, currentDate, currencies };
 };
